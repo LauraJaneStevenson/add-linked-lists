@@ -35,12 +35,14 @@ def add_linked_lists(l1, l2):
 
     Returns: head node of linked list of sum in "reverse-digit" format.
     """
+
+    # get sum of two numbers 
     new_num = int(l1.as_rev_string()) + int(l2.as_rev_string())
 
-    # print(new_num)
-
+    # create list where we will store Nodes
     temp_lst = []
 
+    # create nodes out of reversed new_num
     i = len(str(new_num)) - 1
     
     while i >= 0:
@@ -49,13 +51,16 @@ def add_linked_lists(l1, l2):
 
         i -= 1
 
+
+    # link nodes together
     for i in range(len(temp_lst)):
-        
+
+        # conditional so we won't go out of range
         if i != len(temp_lst) - 1:
 
             temp_lst[i].next = temp_lst[i+1]
 
-
+    # return head node
     return temp_lst[0]
 
 
